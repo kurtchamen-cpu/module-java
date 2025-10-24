@@ -1,50 +1,53 @@
-# Modular Media Streaming Suite (Java)  
+Modular Media Streaming Suite (Java)
 
-This is a **Java reference implementation** of a modular media streaming suite demonstrating key **structural design patterns**. It simulates playback via console output and showcases how these patterns can be applied to build a flexible, extensible media player.  
+This project showcases a modular media streaming system built in Java, highlighting the usage of several structural design patterns. Playback behavior is simulated through console output, demonstrating how these patterns contribute to building an extensible and maintainable media player architecture.
 
-The project implements the following structural patterns:  
 
-- **Bridge** – Separates media player abstraction from rendering implementations (hardware vs software).  
-- **Adapter** – Wraps legacy media sources so they can be used with the new player seamlessly.  
-- **Decorator** – Adds features like **watermarking** and **equalizer presets** at runtime without modifying the core player.  
-- **Composite** – Supports **playlists and nested playlists**, allowing complex hierarchies of media files to be played uniformly.  
-- **Proxy** – Caches remote media streams to optimize repeated playback.  
+
+Structural Patterns Used
+
+- **Bridge** — Decouples the media player’s abstraction from its rendering implementations (software vs. hardware).
+- **Adapter** — Enables compatibility with older or incompatible media sources.
+- **Decorator** — Allows optional runtime enhancements such as watermarks and equalizer settings without modifying core logic.
+- **Composite** — Provides support for standard and nested playlists, enabling hierarchical media organization.
+- **Proxy** — Caches remote streams to improve performance during repeated access.
+
+
+
+Core Capabilities
+
+- Playback of media from:
+  - Local files
+  - Remote APIs
+  - HLS live streams
+- Nested playlist handling via the Composite pattern
+- Runtime switching between CPU and GPU renderers
+- Add-on audio/visual effects through decorators
+- Remote media caching for improved loading times
+- Legacy media support through adapters
+
+
+
+Setup & Usage
+
+Requirements
+- **Java 17 or newer** (built and tested on JDK 25)
+- Visual Studio Code with the **Java Extension Pack**, or any Java-compatible IDE
+
+
+
+ Running in VS Code
+
+1. Open the project folder in **Visual Studio Code**.
+2. Install the **Java Extension Pack** if prompted.
+3. Open **`Demo.java`**.
+4. Run using the configuration **"Run Modular Media Suite"** or press **Ctrl + F5**.
 
 ---
+ Running from the Command Line
 
-## Features  
+From the root directory of this repository, execute:
 
-- Play media from **local files**, **HLS streams**, and **remote APIs**.  
-- Support for **composite playlists** (nested playlists).  
-- **Dynamic renderer switching** (hardware GPU vs software CPU) at runtime.  
-- Apply **decorators** for audio and visual enhancements.  
-- **Caching** of remote media for faster repeated access.  
-- Seamless **legacy media integration** using adapters.  
-
----
-
-## Getting Started  
-
-### Prerequisites  
-
-- Java 17+ (tested on JDK 25)  
-- Visual Studio Code with **Java Extension Pack** or any Java IDE  
-
----
-
-### Run in VS Code  
-
-1. Open this folder in Visual Studio Code.  
-2. Install the **Java Extension Pack** if prompted.  
-3. Open `Demo.java` and run the configuration **"Run Modular Media Suite"**, or press **Ctrl+F5**.  
-
----
-
-### Run from the Command Line  
-
-From the repository root folder:  
-
-```bash
 mkdir -p out
 javac -d out $(find src/main/java -name "*.java")
 java -cp out com.example.media.Demo
